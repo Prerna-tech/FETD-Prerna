@@ -1,35 +1,94 @@
+
 import java.util.Scanner;
 
-public class FormalQSolution {
+public class Task {
 	public static void main(String[] args) {
-		formulaQ("FORMULAQSOLUTIONS");
-	}
-	
-	
-	public static void formulaQ(String str)
-	{
-		for (int i = 0; i <=str.length()/2; i++) {
-			for (int j =i; j <=str.length()/2; j++) 
-				System.out.print(" ");
-			int k=i;
-			
-			for (int j = 0; j < (i*2)+1; j++) {
-				if (k==str.length()) k=0;
-					System.out.print(str.charAt(k++));
+
+			Scanner scn = new Scanner(System.in);
+
+			System.out.println("Enter a num");
+
+			int n = scn.nextInt();
+
+			if(n%2==0) {
+
+				n+=1;
 			}
-			System.out.println();
+
+			int st = 1;
+
+			int sp = n / 2;
+
+			String s = "FORMULAQSOLUTIONS";
+
+			int n1 = 0;
+
+			int n2 = n1;
+
+			for (int i = 1; i <= n; i++) {
+
+				int k = 0;
+
+				boolean flag = true;
+
+				for (int j = 1; j <= sp; j++)
+
+					System.out.print(" ");
+
+				int p = n1;
+
+				int h = n2;
+
+				for (int j = 1; j <= st; j++) {
+
+					if (p < s.length()) {
+
+						System.out.print(s.charAt(p));
+
+						p++;
+
+						flag = false;
+
+					}else {
+
+						if (!flag) {
+
+							System.out.print(s.charAt(k));
+
+							k++;
+
+						} else {
+							System.out.print(s.charAt(h));
+							h++;
+
+						}
+                                        }
+
+				}
+
+				if (flag)
+
+					n2++;
+
+				n1++;
+
+				System.out.println();
+
+				if (i <= n / 2) {
+
+					sp--;
+
+					st += 2;
+
+				} else {
+
+					sp++;
+
+					st -= 2;
+
+				}
+
+			}
+
 		}
-		
-		for (int i = 0; i <str.length()/2; i++) {
-			for (int j =0; j <=i+1; j++) {
-				System.out.print(" ");
-			}
-			int k=str.length()/2+1+i;
-			for (int j =i*2; j<str.length()-2; j++) {
-				if (k==str.length()) k=0;
-					System.out.print(str.charAt(k++));
-			}
-			System.out.println();
-		}
-	}
 }
